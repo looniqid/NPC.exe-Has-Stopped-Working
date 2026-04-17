@@ -12,11 +12,11 @@ func _process(delta):
 			print("where is your scene?！")
 
 func _on_body_entered(body: Node2D):
-	if body.name == "Player":
+	if body.name == "player":
 		can_teleport = true
-		print("press E and let's go") 
+		print("press up arrow and let's go") 
 
 func _on_body_exited(body: Node2D):
-	if body.name == "Player":
+	if body.name == "player":
 		can_teleport = false
 		print("player leave")
