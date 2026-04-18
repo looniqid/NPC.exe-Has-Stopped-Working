@@ -14,12 +14,22 @@ class_name Player
 @onready var interceptor: InputInterceptor = $InputInterceptor
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 
 var jump_count: int = 0
 var is_attacking: bool = false
+const ATTACK_AREA_OFFSET_X: float = 32.0  # Horizontal offset of the AttackArea from center
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_animation_finished)
+	if attack_area:
+		attack_area.body_entered.connect(_on_attack_hit)
+
+func _on_attack_hit(body: Node2D):
+	if body.has_method("take_damage"):
+		body.take_damage()
+		print("[PLAYER] Hit ", body.name)
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
@@ -91,15 +101,21 @@ func handle_attack_input() -> void:
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking = true
 		sprite.play("attack")
+		if attack_collision:
+			attack_collision.set_deferred("disabled", false)
 
 func update_animations() -> void:
 	# Gate 1: Action Lock
 	if is_attacking:
 		return
 	
-	# Gate 2: Flip Logic
+	# Gate 2: Flip Logic + Attack Area synchronization
 	if abs(velocity.x) > 0:
-		sprite.flip_h = velocity.x < 0
+		var facing_right: bool = velocity.x > 0
+		sprite.flip_h = not facing_right
+		# Mirror AttackArea position to match facing direction
+		if attack_area:
+			attack_area.position.x = ATTACK_AREA_OFFSET_X if facing_right else -ATTACK_AREA_OFFSET_X
 	
 	# Gate 3: Physics State Priority
 	if not is_on_floor():
@@ -112,6 +128,12 @@ func update_animations() -> void:
 func _on_animation_finished() -> void:
 	if sprite.animation == "attack":
 		is_attacking = false
+		if attack_collision:
+			attack_collision.set_deferred("disabled", true)
+		# Restore the attack area to the current facing direction after the animation ends
+		if attack_area:
+			var facing_right: bool = not sprite.flip_h
+			attack_area.position.x = ATTACK_AREA_OFFSET_X if facing_right else -ATTACK_AREA_OFFSET_X
 
 func _on_chaos_buddy_chaos_event_triggered(event_type: String) -> void:
 	if event_type == "invert":

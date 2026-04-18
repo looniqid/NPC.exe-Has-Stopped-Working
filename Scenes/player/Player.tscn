@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://dp8emiw0wdjr3" path="res://scripts/core/InputInterceptor.gd" id="2_interceptor"]
 [ext_resource type="Texture2D" uid="uid://dy84i67l3orsn" path="res://Assets/Teammate/Assets/main char act/main char act_0005.png" id="3_attack0"]
 [ext_resource type="Texture2D" uid="uid://cq8srndvwri6p" path="res://Assets/Teammate/Assets/main char act/main char act_0006.png" id="5_attack1"]
-[ext_resource type="Texture2D" uid="uid://n8p4g7iix01w" path="res://Graphics/main char act_0017.png" id="7_8hdke"]
+[ext_resource type="Texture2D" uid="uid://duwmvnc483kmk" path="res://Graphics/player/main char act_0001.png" id="6_irnrt"]
+[ext_resource type="Texture2D" uid="uid://cqatov4eaehg8" path="res://Graphics/main char act_0017.png" id="7_8hdke"]
+[ext_resource type="Texture2D" uid="uid://bra4h1oy2gc46" path="res://Graphics/player/main char act_0015.png" id="7_r5m3b"]
+[ext_resource type="Texture2D" uid="uid://dc8cvgy3d2nr7" path="res://Graphics/player/main char act_0014.png" id="8_0otme"]
 [ext_resource type="Texture2D" uid="uid://cnl2stcbyd43u" path="res://Assets/Teammate/Assets/main char act/main char act_0007.png" id="8_attack2"]
 [ext_resource type="Texture2D" uid="uid://c81yehw1ut7s1" path="res://Assets/Teammate/Assets/main char act/main char act_0008.png" id="9_attack3"]
 [ext_resource type="Texture2D" uid="uid://dq2qdpq53a3pj" path="res://Assets/Teammate/Assets/main char act_0010.png" id="10_jump0"]
@@ -80,6 +83,34 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_irnrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r5m3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_irnrt")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_irnrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0otme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_irnrt")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_walk0")
 }, {
 "duration": 1.0,
@@ -128,6 +159,9 @@ animations = [{
 radius = 16.0
 height = 64.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_attack"]
+size = Vector2(40, 64)
+
 [node name="Player" type="CharacterBody2D" unique_id=993275919 groups=["player"]]
 collision_layer = 2
 collision_mask = 5
@@ -140,8 +174,6 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_player")
 animation = &"idle"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.8306362
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51171788]
 position = Vector2(0, 4)
@@ -149,6 +181,15 @@ shape = SubResource("CapsuleShape2D_1")
 
 [node name="InputInterceptor" type="Node" parent="." unique_id=1678905935]
 script = ExtResource("2_interceptor")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=11223344]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=55667788]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_attack")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=415494132]
 zoom = Vector2(2, 2)

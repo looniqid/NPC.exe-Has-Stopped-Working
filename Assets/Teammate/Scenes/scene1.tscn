@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcnewrnd865km"]
 
-[ext_resource type="PackedScene" uid="uid://clsk0e3ubdn23" path="res://Assets/Teammate/Scenes/player.tscn" id="1_wlubc"]
+[ext_resource type="PackedScene" uid="uid://c1p2p3p4p5p6" path="res://Scenes/player/Player.tscn" id="1_wlubc"]
 
 [node name="Node2D" type="Node2D" unique_id=829298096]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqatov4eaehg8"
-path="res://.godot/imported/main char act_0017.png-0406defd45cb6fa07290799db66a006e.ctex"
+uid="uid://cssn7yi73l5a7"
+path="res://.godot/imported/CHASE-removebg-preview.png-a87faddcc17f6fcd3b5668966d513312.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/main char act_0017.png"
-dest_files=["res://.godot/imported/main char act_0017.png-0406defd45cb6fa07290799db66a006e.ctex"]
+source_file="res://Graphics/wolf/CHASE-removebg-preview.png"
+dest_files=["res://.godot/imported/CHASE-removebg-preview.png-a87faddcc17f6fcd3b5668966d513312.ctex"]
 
 [params]
 

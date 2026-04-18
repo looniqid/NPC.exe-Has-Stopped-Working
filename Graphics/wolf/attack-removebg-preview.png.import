@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqatov4eaehg8"
-path="res://.godot/imported/main char act_0017.png-0406defd45cb6fa07290799db66a006e.ctex"
+uid="uid://d2uwl0qvvxcc8"
+path="res://.godot/imported/attack-removebg-preview.png-422b0027aaa1ee2a5d491347a2b934df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/main char act_0017.png"
-dest_files=["res://.godot/imported/main char act_0017.png-0406defd45cb6fa07290799db66a006e.ctex"]
+source_file="res://Graphics/wolf/attack-removebg-preview.png"
+dest_files=["res://.godot/imported/attack-removebg-preview.png-422b0027aaa1ee2a5d491347a2b934df.ctex"]
 
 [params]
 
