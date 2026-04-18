@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://wamfcwxojhi0" path="res://asset/Idle2 (1).png" id="4_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://cnl2stcbyd43u" path="res://asset/main char act/main char act_0007.png" id="4_v4iqv"]
 [ext_resource type="Texture2D" uid="uid://c81yehw1ut7s1" path="res://asset/main char act/main char act_0008.png" id="5_42h83"]
+[ext_resource type="Texture2D" uid="uid://cg53lbucgqeic" path="res://asset/main char act/main char act_0013.png" id="6_42h83"]
+[ext_resource type="Texture2D" uid="uid://drdliaa0dixgm" path="res://asset/main char act/main char act_0014.png" id="7_iuf2t"]
+[ext_resource type="Texture2D" uid="uid://chcoik7pfg5w7" path="res://asset/main char act/main char act_0015.png" id="8_jrjdb"]
 [ext_resource type="Texture2D" uid="uid://dq2qdpq53a3pj" path="res://asset/main char act_0010.png" id="9_bup7g"]
 [ext_resource type="Texture2D" uid="uid://dd7g7lvxij58b" path="res://asset/main char act/main char act_0009.png" id="9_iuf2t"]
 [ext_resource type="Texture2D" uid="uid://bd1vo3mgn33ww" path="res://asset/main char act/main char act_0011.png" id="11_kk4ol"]
@@ -15,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b1fhujwb32u75" path="res://asset/main char act/main char act_0002.png" id="14_k8m7u"]
 [ext_resource type="Texture2D" uid="uid://qcdhcr5e5bj7" path="res://asset/main char act/main char act_0003.png" id="15_qucqc"]
 [ext_resource type="Texture2D" uid="uid://ltxy1sl1y0aw" path="res://asset/main char act/main char act_0004.png" id="16_xsw3c"]
+[ext_resource type="AudioStream" uid="uid://ja2cevypxqar" path="res://asset/s3map/walk sound.mp3" id="19_42h83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvtld"]
 size = Vector2(22, 39.75)
@@ -33,6 +37,26 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vgh4"]
 atlas = ExtResource("5_42h83")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4reak"]
+atlas = ExtResource("6_42h83")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt23p"]
+atlas = ExtResource("7_iuf2t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8m7u"]
+atlas = ExtResource("7_iuf2t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qucqc"]
+atlas = ExtResource("8_jrjdb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsw3c"]
+atlas = ExtResource("8_jrjdb")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
@@ -96,6 +120,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4reak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt23p")
+}],
+"loop": true,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8m7u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qucqc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsw3c")
+}],
+"loop": false,
+"name": &"died",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ct4mp")
 }, {
 "duration": 1.0,
@@ -151,7 +200,7 @@ shape = SubResource("RectangleShape2D_fvtld")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638382999]
 position = Vector2(29, -28)
 sprite_frames = SubResource("SpriteFrames_hp4bs")
-animation = &"jump"
+animation = &"walking"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1522749194]
 position = Vector2(29, -28)
@@ -159,4 +208,12 @@ zoom = Vector2(3, 3)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=476033818]
 
+[node name="SFX_Footstep" type="AudioStreamPlayer" parent="." unique_id=846992395]
+stream = ExtResource("19_42h83")
+volume_db = 3.077
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=414530599]
+wait_time = 0.35
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="FootstepTimer" to="." method="_on_footstep_timer_timeout"]

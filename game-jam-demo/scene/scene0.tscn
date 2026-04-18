@@ -27,6 +27,8 @@
 [ext_resource type="AudioStream" uid="uid://dhmmbm14peoy4" path="res://scene/WhatsApp Audio 2026-04-18 at 11.11.09.mp3" id="26_iqn0t"]
 [ext_resource type="Script" uid="uid://buq6p7c7y1if4" path="res://scene/node.gd" id="26_p08di"]
 [ext_resource type="Texture2D" uid="uid://dy3oca7k6132y" path="res://asset/Portal.png" id="27_ykr6g"]
+[ext_resource type="AudioStream" uid="uid://ceg407fudplsn" path="res://asset/s3map/hit tree sound.mp3" id="28_n08js"]
+[ext_resource type="AudioStream" uid="uid://barpyyddbav28" path="res://asset/s3map/break.mp3" id="29_p08di"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sng2h"]
 atlas = ExtResource("6_mv37r")
@@ -3962,13 +3964,15 @@ z_index = 2
 position = Vector2(38, -58)
 texture = ExtResource("11_vt0y6")
 
-[node name="CutsceneDirector" type="Node" parent="." unique_id=119992059 node_paths=PackedStringArray("player", "hero", "tree", "bgm_player")]
+[node name="CutsceneDirector" type="Node" parent="." unique_id=119992059 node_paths=PackedStringArray("player", "hero", "tree", "bgm_player", "sfx_hit", "sfx_break")]
 script = ExtResource("26_p08di")
 player = NodePath("../player")
 hero = NodePath("../hero")
 tree = NodePath("../tree")
 bgm_player = NodePath("../BGM")
 next_bgm = ExtResource("26_i64e7")
+sfx_hit = NodePath("../SFX_Hit")
+sfx_break = NodePath("../SFX_Break")
 
 [node name="tutorialinteract" type="Area2D" parent="." unique_id=247435816]
 position = Vector2(-2, 0)
@@ -3987,7 +3991,15 @@ text = "Press [W] interact with portal."
 
 [node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1642465994]
 stream = ExtResource("26_iqn0t")
+volume_db = -5.887
 autoplay = true
+
+[node name="SFX_Hit" type="AudioStreamPlayer" parent="." unique_id=1404453974]
+stream = ExtResource("28_n08js")
+
+[node name="SFX_Break" type="AudioStreamPlayer" parent="." unique_id=2038819393]
+stream = ExtResource("29_p08di")
+volume_db = 6.769
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]

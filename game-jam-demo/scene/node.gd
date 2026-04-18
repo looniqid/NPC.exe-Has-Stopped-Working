@@ -5,6 +5,8 @@ extends Node
 @export var tree: Node2D
 @export var bgm_player: AudioStreamPlayer
 @export var next_bgm: AudioStream
+@export var sfx_hit: AudioStreamPlayer
+@export var sfx_break: AudioStreamPlayer
 
 func _ready():
 	play_opening_cutscene()
@@ -60,6 +62,8 @@ func play_opening_cutscene():
 		player.get_node("AnimatedSprite2D").play("idle") 
 		player.position.x += (-5 if is_tree_on_left else 5) 
 		print("砰！")
+		if sfx_hit:
+			sfx_hit.play()
 		await get_tree().create_timer(0.1).timeout
 		player.position.x += (5 if is_tree_on_left else -5) 
 		player.get_node("AnimatedSprite2D").play("walking") 
@@ -74,6 +78,8 @@ func play_opening_cutscene():
 	if quest_marker and break_effect:
 		quest_marker.visible = false 
 		break_effect.emitting = true 
+		if sfx_break:
+			sfx_break.play()
 	
 	if bgm_player:
 		var pitch_tween = create_tween()

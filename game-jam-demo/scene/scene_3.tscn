@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cq7mwq67ropjh" path="res://asset/s3map/redddgltich.png" id="13_7es0y"]
 [ext_resource type="PackedScene" uid="uid://dddshq7h6dd7k" path="res://scene/moving paltform green.tscn" id="14_km3ni"]
 [ext_resource type="AudioStream" uid="uid://di0ov2x3qa0ox" path="res://asset/s3map/FarBeyond Studio - Freebies Vol. 1 - 07 - Suspense (CC-BY 4.0).mp3" id="15_tgqsj"]
+[ext_resource type="AudioStream" uid="uid://drryaiechtxsr" path="res://asset/s3map/weird sound.ogg" id="16_20uu1"]
+[ext_resource type="Script" uid="uid://dlsskyumtjaay" path="res://scene/weirdsound.gd" id="17_d1e2l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7es0y"]
 texture = ExtResource("1_vrbmq")
@@ -2719,3 +2721,8 @@ position = Vector2(435, -893)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1427761708]
 stream = ExtResource("15_tgqsj")
 autoplay = true
+
+[node name="weirdsound" type="AudioStreamPlayer" parent="." unique_id=153240520]
+stream = ExtResource("16_20uu1")
+autoplay = true
+script = ExtResource("17_d1e2l")

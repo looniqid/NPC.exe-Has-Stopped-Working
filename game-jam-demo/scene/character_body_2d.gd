@@ -4,6 +4,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sfx_footstep: AudioStreamPlayer = $SFX_Footstep
+@onready var footstep_timer: Timer = $FootstepTimer
 
 var is_attacking: bool = false
 
@@ -41,10 +43,16 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = direction * SPEED
 			animated_sprite.flip_h = (direction < 0)
+			if is_on_floor() and footstep_timer.is_stopped():
+				sfx_footstep.play()      
+				footstep_timer.start()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+			footstep_timer.stop()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		footstep_timer.stop()
 
 	move_and_slide()
 	
@@ -75,3 +83,8 @@ func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "attack":
 		is_attacking = false
 		print("stop attack status！")
+
+
+func _on_footstep_timer_timeout() -> void:
+	if is_on_floor():
+		sfx_footstep.play()
