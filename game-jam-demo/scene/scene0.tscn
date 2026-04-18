@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://sxaygdc16c11" path="res://asset/_Run.png" id="25_n08js"]
 [ext_resource type="Texture2D" uid="uid://j5tdeww7i5mf" path="res://asset/Boat.png" id="25_qd5t8"]
 [ext_resource type="Script" uid="uid://bsfp6dtn6uooy" path="res://scene/portal.gd" id="26_45ftm"]
+[ext_resource type="AudioStream" uid="uid://baejlyrjg4a8y" path="res://asset/Udio - Dance at Dusk.ogg" id="26_i64e7"]
 [ext_resource type="AudioStream" uid="uid://dhmmbm14peoy4" path="res://scene/WhatsApp Audio 2026-04-18 at 11.11.09.mp3" id="26_iqn0t"]
 [ext_resource type="Script" uid="uid://buq6p7c7y1if4" path="res://scene/node.gd" id="26_p08di"]
 [ext_resource type="Texture2D" uid="uid://dy3oca7k6132y" path="res://asset/Portal.png" id="27_ykr6g"]
@@ -3773,7 +3774,7 @@ shape = SubResource("RectangleShape2D_ux4dc")
 
 [node name="Portal" type="Area2D" parent="." unique_id=148844205]
 script = ExtResource("26_45ftm")
-target_scene_path = "uid://dcnewrnd865km"
+target_scene_path = "uid://dq5b0pypkyj5j"
 
 [node name="Sprite2D" type="Sprite2D" parent="Portal" unique_id=758983135]
 z_index = 3
@@ -3967,6 +3968,7 @@ player = NodePath("../player")
 hero = NodePath("../hero")
 tree = NodePath("../tree")
 bgm_player = NodePath("../BGM")
+next_bgm = ExtResource("26_i64e7")
 
 [node name="tutorialinteract" type="Area2D" parent="." unique_id=247435816]
 position = Vector2(-2, 0)

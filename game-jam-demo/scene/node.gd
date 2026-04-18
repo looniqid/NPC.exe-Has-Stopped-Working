@@ -4,6 +4,7 @@ extends Node
 @export var hero: Node2D
 @export var tree: Node2D
 @export var bgm_player: AudioStreamPlayer
+@export var next_bgm: AudioStream
 
 func _ready():
 	play_opening_cutscene()
@@ -64,7 +65,7 @@ func play_opening_cutscene():
 		player.get_node("AnimatedSprite2D").play("walking") 
 		await get_tree().create_timer(0.4).timeout
 
-	print("【觉醒触发！】")
+	print("【u are freeeeeeeeee！】")
 	player.get_node("AnimatedSprite2D").play("idle")
 	
 	var quest_marker = player.get_node_or_null("QuestMarker2")
@@ -90,3 +91,10 @@ func play_opening_cutscene():
 	player.get_node("ChatBubble").text = ""
 	
 	player.has_control = true
+	
+	if bgm_player and next_bgm:
+		await get_tree().create_timer(1.0).timeout 
+		
+		bgm_player.stream = next_bgm 
+		bgm_player.pitch_scale = 1.0
+		bgm_player.play() 

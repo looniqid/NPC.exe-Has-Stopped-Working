@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://baejlyrjg4a8y"
+path="res://.godot/imported/Udio - Dance at Dusk.ogg-44fd34cb0651e646b4066c33176653aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/Udio - Dance at Dusk.ogg"
+dest_files=["res://.godot/imported/Udio - Dance at Dusk.ogg-44fd34cb0651e646b4066c33176653aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,7 +7,7 @@ const JUMP_VELOCITY = -400.0
 
 var is_attacking: bool = false
 
-var has_control: bool = false 
+var has_control: bool = true
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
