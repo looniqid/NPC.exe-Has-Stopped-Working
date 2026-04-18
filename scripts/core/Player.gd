@@ -19,6 +19,7 @@ class_name Player
 
 var jump_count: int = 0
 var is_attacking: bool = false
+var has_control: bool = true
 const ATTACK_AREA_OFFSET_X: float = 32.0  # Horizontal offset of the AttackArea from center
 
 func _ready() -> void:
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		jump_count = 0
 
 	# Handle Jump
-	if interceptor.is_jump_just_pressed():
+	if has_control and interceptor.is_jump_just_pressed():
 		if is_on_floor():
 			velocity.y = jump_velocity
 			jump_count = 1
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	handle_attack_input()
 
 	# Get horizontal direction from interceptor
-	var direction: float = interceptor.get_movement_direction()
+	var direction: float = interceptor.get_movement_direction() if has_control else 0.0
 	
 	# Handle horizontal movement (Locked if attacking)
 	if not is_attacking:
@@ -98,6 +99,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func handle_attack_input() -> void:
+	if not has_control:
+		return
 	if Input.is_action_just_pressed("attack") and not is_attacking:
 		is_attacking = true
 		sprite.play("attack")

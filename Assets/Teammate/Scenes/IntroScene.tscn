@@ -1,35 +1,39 @@
 [gd_scene format=3 uid="uid://bd1ttjfltrp6x"]
 
-[ext_resource type="Texture2D" uid="uid://bpox4kmjh1ekw" path="res://Assets/Teammate/Assets/background.png" id="1_smunw"]
+[ext_resource type="Texture2D" uid="uid://bpox4kmjh1ekw" path="res://Assets/Teammate/Tutorial/Assets/background.png" id="1_smunw"]
 [ext_resource type="Script" uid="uid://cd8v2es20f4y8" path="res://scripts/core/Main.gd" id="1_vbkhl"]
-[ext_resource type="Texture2D" uid="uid://i4paeid8a2pq" path="res://Assets/Teammate/Assets/GandalfHardcore Water Tiles sheet.png" id="2_vbkhl"]
-[ext_resource type="Texture2D" uid="uid://ba8uixf7bevlf" path="res://Assets/Teammate/Assets/Birch1.png" id="3_w0chj"]
-[ext_resource type="Texture2D" uid="uid://bxd3godxa5b84" path="res://Assets/Teammate/Assets/Game jam demo forest.png" id="4_tshgq"]
-[ext_resource type="Texture2D" uid="uid://bxkr0obi5w404" path="res://Assets/Teammate/Assets/Tree2.png" id="5_s02qs"]
-[ext_resource type="Texture2D" uid="uid://c8lifpoat1f0w" path="res://Assets/Teammate/Assets/Tree3.png" id="6_u0wmj"]
-[ext_resource type="Texture2D" uid="uid://df8qdkxi2ib0h" path="res://Assets/Teammate/Assets/Weeping Willow1.png" id="7_lt13j"]
-[ext_resource type="Texture2D" uid="uid://dudfk1y5pql4e" path="res://Assets/Teammate/Assets/Weeping Willow2.png" id="8_tgqow"]
-[ext_resource type="Texture2D" uid="uid://co0icgx1h0fue" path="res://Assets/Teammate/Assets/Angel Statue.png" id="9_nbbbm"]
-[ext_resource type="Texture2D" uid="uid://cam4s17pdkeba" path="res://Assets/Teammate/Assets/Birch2.png" id="10_ugt2f"]
-[ext_resource type="Texture2D" uid="uid://b4bhogsbgriqc" path="res://Assets/Teammate/Assets/cloud1.png" id="11_4f6s6"]
-[ext_resource type="Texture2D" uid="uid://bsiegic8ro6fw" path="res://Assets/Teammate/Assets/House Tiles.png" id="12_qk82o"]
-[ext_resource type="Texture2D" uid="uid://b0xl7o7w3c8xk" path="res://Assets/Teammate/Assets/Tree1.png" id="13_qghrg"]
+[ext_resource type="Texture2D" uid="uid://i4paeid8a2pq" path="res://Assets/Teammate/Tutorial/Assets/GandalfHardcore Water Tiles sheet.png" id="2_vbkhl"]
+[ext_resource type="Texture2D" uid="uid://ba8uixf7bevlf" path="res://Assets/Teammate/Tutorial/Assets/Birch1.png" id="3_w0chj"]
+[ext_resource type="Texture2D" uid="uid://bxd3godxa5b84" path="res://Assets/Teammate/Tutorial/Assets/Game jam demo forest.png" id="4_tshgq"]
+[ext_resource type="Texture2D" uid="uid://bxkr0obi5w404" path="res://Assets/Teammate/Tutorial/Assets/Tree2.png" id="5_s02qs"]
+[ext_resource type="Texture2D" uid="uid://c8lifpoat1f0w" path="res://Assets/Teammate/Tutorial/Assets/Tree3.png" id="6_u0wmj"]
+[ext_resource type="Texture2D" uid="uid://df8qdkxi2ib0h" path="res://Assets/Teammate/Tutorial/Assets/Weeping Willow1.png" id="7_lt13j"]
+[ext_resource type="Texture2D" uid="uid://dudfk1y5pql4e" path="res://Assets/Teammate/Tutorial/Assets/Weeping Willow2.png" id="8_tgqow"]
+[ext_resource type="Texture2D" uid="uid://co0icgx1h0fue" path="res://Assets/Teammate/Tutorial/Assets/Angel Statue.png" id="9_nbbbm"]
+[ext_resource type="Texture2D" uid="uid://cam4s17pdkeba" path="res://Assets/Teammate/Tutorial/Assets/Birch2.png" id="10_ugt2f"]
+[ext_resource type="Texture2D" uid="uid://b4bhogsbgriqc" path="res://Assets/Teammate/Tutorial/Assets/cloud1.png" id="11_4f6s6"]
+[ext_resource type="Texture2D" uid="uid://bsiegic8ro6fw" path="res://Assets/Teammate/Tutorial/Assets/House Tiles.png" id="12_qk82o"]
+[ext_resource type="Texture2D" uid="uid://b0xl7o7w3c8xk" path="res://Assets/Teammate/Tutorial/Assets/Tree1.png" id="13_qghrg"]
 [ext_resource type="Texture2D" uid="uid://bx1ywn723vsm" path="res://Assets/Teammate/Assets/Large Tent.png" id="14_hnjeq"]
 [ext_resource type="Texture2D" uid="uid://ci3av48grk8vm" path="res://Assets/Teammate/Assets/hot air balloon.png" id="15_pkskv"]
-[ext_resource type="Texture2D" uid="uid://b2pr502ifu3ax" path="res://Assets/Teammate/Assets/Decor.png" id="16_12ap2"]
-[ext_resource type="Texture2D" uid="uid://deidanajhbwfo" path="res://Assets/Teammate/Assets/Garden Decorations.png" id="17_fk0pl"]
-[ext_resource type="Texture2D" uid="uid://82moomhh4wv6" path="res://Assets/Teammate/Assets/Pixel Art Furnace and Sawmill.png" id="18_cvgxe"]
-[ext_resource type="Texture2D" uid="uid://bfcskho4hoqp" path="res://Assets/Teammate/Assets/Campfire with food sheet.png" id="19_pfwvx"]
-[ext_resource type="Texture2D" uid="uid://cjnl1xfaxggkx" path="res://Assets/Teammate/Assets/GandalfHardcore Animated Water Tiles.png" id="20_ilosx"]
-[ext_resource type="Texture2D" uid="uid://j5tdeww7i5mf" path="res://Assets/Teammate/Assets/Boat.png" id="21_l5hmy"]
-[ext_resource type="Script" uid="uid://bsfp6dtn6uooy" path="res://Assets/Teammate/Scenes/portal.gd" id="22_pl2te"]
-[ext_resource type="Texture2D" uid="uid://dy3oca7k6132y" path="res://Assets/Teammate/Assets/Portal.png" id="23_ukflq"]
+[ext_resource type="Texture2D" uid="uid://b2pr502ifu3ax" path="res://Assets/Teammate/Tutorial/Assets/Decor.png" id="16_12ap2"]
+[ext_resource type="Texture2D" uid="uid://deidanajhbwfo" path="res://Assets/Teammate/Tutorial/Assets/Garden Decorations.png" id="17_fk0pl"]
+[ext_resource type="Texture2D" uid="uid://82moomhh4wv6" path="res://Assets/Teammate/Tutorial/Assets/Pixel Art Furnace and Sawmill.png" id="18_cvgxe"]
+[ext_resource type="Texture2D" uid="uid://bfcskho4hoqp" path="res://Assets/Teammate/Tutorial/Assets/Campfire with food sheet.png" id="19_pfwvx"]
+[ext_resource type="Texture2D" uid="uid://cjnl1xfaxggkx" path="res://Assets/Teammate/Tutorial/Assets/GandalfHardcore Animated Water Tiles.png" id="20_ilosx"]
+[ext_resource type="Texture2D" uid="uid://j5tdeww7i5mf" path="res://Assets/Teammate/Tutorial/Assets/Boat.png" id="21_l5hmy"]
+[ext_resource type="Script" uid="uid://bsfp6dtn6uooy" path="res://Assets/Teammate/JiaTien_SceneBackup/portal.gd" id="22_pl2te"]
+[ext_resource type="Texture2D" uid="uid://dy3oca7k6132y" path="res://Assets/Teammate/Tutorial/Assets/Portal.png" id="23_ukflq"]
 [ext_resource type="PackedScene" uid="uid://c1p2p3p4p5p6" path="res://Scenes/player/Player.tscn" id="24_brn3i"]
+[ext_resource type="Texture2D" uid="uid://dtfpkgko2yuon" path="res://Assets/Teammate/Tutorial/Assets/_Idle.png" id="24_i64e7"]
+[ext_resource type="Texture2D" uid="uid://sxaygdc16c11" path="res://Assets/Teammate/Tutorial/Assets/_Run.png" id="25_n08js"]
 [ext_resource type="PackedScene" uid="uid://c3d4e5f6g7h8" path="res://Scenes/entities/ChaosBuddy.tscn" id="25_u4xxl"]
 [ext_resource type="PackedScene" uid="uid://d1e2f3g4h5i6" path="res://Scenes/items/Installer.tscn" id="26_ir7vw"]
-[ext_resource type="PackedScene" uid="uid://dpa3qdilbg7pf" path="res://scenes/debug/DebugOverlay.tscn" id="27_debug"]
-[ext_resource type="Texture2D" uid="uid://d285ambp4ql84" path="res://Graphics/installers/audio.png" id="28_s02qs"]
+[ext_resource type="PackedScene" uid="uid://dpa3qdilbg7pf" path="res://Scenes/debug/DebugOverlay.tscn" id="27_debug"]
 [ext_resource type="PackedScene" uid="uid://vreq3r4np3ec" path="res://Scenes/entities/BlackWolf.tscn" id="29_tshgq"]
+[ext_resource type="Script" uid="uid://db4cys1nn5q2i" path="res://Assets/Teammate/JiaTien_SceneBackup/tutorial.gd" id="30_lt13j"]
+[ext_resource type="Script" uid="uid://buq6p7c7y1if4" path="res://Assets/Teammate/JiaTien_SceneBackup/autoRun.gd" id="33_nbbbm"]
+[ext_resource type="AudioStream" uid="uid://baejlyrjg4a8y" path="res://Assets/Teammate/Tutorial/Assets/Udio - Dance at Dusk.ogg" id="34_ugt2f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sng2h"]
 atlas = ExtResource("2_vbkhl")
@@ -3634,6 +3638,249 @@ size = Vector2(111, 124.6875)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0yri0"]
 size = Vector2(125, 812)
 
+[sub_resource type="Curve" id="Curve_tgqow"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="FontFile" id="FontFile_nbbbm"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugt2f"]
+size = Vector2(244.5, 97)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4f6s6"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qk82o"]
+a = Vector2(-104, -20)
+b = Vector2(-1, -19)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qghrg"]
+a = Vector2(-159, -31)
+b = Vector2(-246, -30)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hnjeq"]
+a = Vector2(-219, -94)
+b = Vector2(-306, -94)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pkskv"]
+a = Vector2(46, -151)
+b = Vector2(-32, -151)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_12ap2"]
+a = Vector2(103, -88)
+b = Vector2(19, -88)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fk0pl"]
+a = Vector2(-438, -94)
+b = Vector2(-548, -96)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cvgxe"]
+a = Vector2(-486, -146)
+b = Vector2(-606, -146)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pfwvx"]
+a = Vector2(323, -48)
+b = Vector2(259, -47)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ilosx"]
+a = Vector2(273, -113)
+b = Vector2(194, -111)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l5hmy"]
+a = Vector2(732, -3)
+b = Vector2(763, -4)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pl2te"]
+a = Vector2(698, -81)
+b = Vector2(744, -82)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ukflq"]
+a = Vector2(638, -135)
+b = Vector2(686, -135)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_brn3i"]
+a = Vector2(989, -22)
+b = Vector2(1078, -26)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u4xxl"]
+a = Vector2(1039, -94)
+b = Vector2(1139, -94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir7vw"]
+size = Vector2(292, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjpl4"]
+size = Vector2(228, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuekg"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv37r"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpdrk"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6538k"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uavl0"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3dfq"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt0y6"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xonkc"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl5tk"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ys36"]
+atlas = ExtResource("24_i64e7")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haw0g"]
+atlas = ExtResource("25_n08js")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qko1"]
+atlas = ExtResource("25_n08js")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycinc"]
+atlas = ExtResource("25_n08js")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs2sh"]
+atlas = ExtResource("25_n08js")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u47m1"]
+atlas = ExtResource("25_n08js")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mr2o"]
+atlas = ExtResource("25_n08js")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qif36"]
+atlas = ExtResource("25_n08js")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbyls"]
+atlas = ExtResource("25_n08js")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiiqf"]
+atlas = ExtResource("25_n08js")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmht"]
+atlas = ExtResource("25_n08js")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bnin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuekg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv37r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpdrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6538k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uavl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3dfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt0y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xonkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl5tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ys36")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haw0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qko1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycinc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs2sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u47m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mr2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qif36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbyls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiiqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmht")
+}],
+"loop": true,
+"name": &"run",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7udt"]
+size = Vector2(176, 110)
+
 [node name="Game" type="Node2D" unique_id=1387137928]
 script = ExtResource("1_vbkhl")
 
@@ -3813,12 +4060,47 @@ shape = SubResource("RectangleShape2D_0yri0")
 
 [node name="player" parent="." unique_id=476033818 instance=ExtResource("24_brn3i")]
 z_index = 5
-position = Vector2(1109, 4)
+position = Vector2(-650, 8)
 collision_mask = 13
+
+[node name="ChatBubble" type="Label" parent="player" unique_id=277698702]
+z_index = 5
+offset_left = -162.0
+offset_top = -94.0
+offset_right = 252.0
+offset_bottom = -71.0
+
+[node name="BreakEffect2" type="CPUParticles2D" parent="player" unique_id=1047269215]
+position = Vector2(21, -60)
+emitting = false
+lifetime = 0.6
+one_shot = true
+speed_scale = 1.55
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 180.0
+initial_velocity_min = 104.58
+initial_velocity_max = 209.15
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_tgqow")
+color = Color(1, 1, 0, 1)
+
+[node name="QuestMarker2" type="Label" parent="player" unique_id=334197455]
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -27.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("FontFile_nbbbm")
+text = "!"
+horizontal_alignment = 1
 
 [node name="ChaosBuddy" parent="." unique_id=152309403 node_paths=PackedStringArray("target_node") instance=ExtResource("25_u4xxl")]
 z_index = 3
-position = Vector2(1183, -33)
+position = Vector2(-592, -32)
 target_node = NodePath("../player")
 follow_offset = Vector2(-50, -50)
 
@@ -3831,13 +4113,178 @@ position = Vector2(-203, 27)
 z_index = 3
 position = Vector2(1289, 32)
 module_type = "audio"
-module_icon = ExtResource("28_s02qs")
 
 [node name="DebugOverlay" parent="." unique_id=532748477 instance=ExtResource("27_debug")]
 
 [node name="BlackWolf" parent="." unique_id=9944051 instance=ExtResource("29_tshgq")]
-visible = false
-position = Vector2(1367, 20)
+position = Vector2(752, 21)
+
+[node name="Node" type="Node" parent="." unique_id=1479162163]
+
+[node name="tutorial move" type="Area2D" parent="." unique_id=537278964]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("30_lt13j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial move" unique_id=1305196835]
+position = Vector2(-333, 0)
+shape = SubResource("RectangleShape2D_ugt2f")
+
+[node name="Label" type="Label" parent="tutorial move" unique_id=1378507300]
+z_index = 5
+offset_left = -463.0
+offset_top = -73.0
+offset_right = -126.0
+offset_bottom = -50.0
+text = "Press [A] to move left and [D] to move right."
+label_settings = SubResource("LabelSettings_4f6s6")
+metadata/_edit_use_anchors_ = true
+
+[node name="invisiblewall" type="StaticBody2D" parent="." unique_id=1496310742]
+
+[node name="1" type="CollisionShape2D" parent="invisiblewall" unique_id=292046229]
+shape = SubResource("SegmentShape2D_qk82o")
+one_way_collision = true
+
+[node name="2" type="CollisionShape2D" parent="invisiblewall" unique_id=698031467]
+shape = SubResource("SegmentShape2D_qghrg")
+one_way_collision = true
+
+[node name="3" type="CollisionShape2D" parent="invisiblewall" unique_id=1710552821]
+shape = SubResource("SegmentShape2D_hnjeq")
+one_way_collision = true
+
+[node name="4" type="CollisionShape2D" parent="invisiblewall" unique_id=868546502]
+shape = SubResource("SegmentShape2D_pkskv")
+one_way_collision = true
+
+[node name="5" type="CollisionShape2D" parent="invisiblewall" unique_id=1454664334]
+shape = SubResource("SegmentShape2D_12ap2")
+one_way_collision = true
+
+[node name="6" type="CollisionShape2D" parent="invisiblewall" unique_id=394309771]
+shape = SubResource("SegmentShape2D_fk0pl")
+one_way_collision = true
+
+[node name="7" type="CollisionShape2D" parent="invisiblewall" unique_id=1140137124]
+shape = SubResource("SegmentShape2D_cvgxe")
+one_way_collision = true
+
+[node name="8" type="CollisionShape2D" parent="invisiblewall" unique_id=156411483]
+shape = SubResource("SegmentShape2D_pfwvx")
+one_way_collision = true
+
+[node name="9" type="CollisionShape2D" parent="invisiblewall" unique_id=1411330537]
+shape = SubResource("SegmentShape2D_ilosx")
+one_way_collision = true
+
+[node name="10" type="CollisionShape2D" parent="invisiblewall" unique_id=877007321]
+shape = SubResource("SegmentShape2D_l5hmy")
+one_way_collision = true
+
+[node name="11" type="CollisionShape2D" parent="invisiblewall" unique_id=620959313]
+shape = SubResource("SegmentShape2D_pl2te")
+one_way_collision = true
+
+[node name="12" type="CollisionShape2D" parent="invisiblewall" unique_id=1021127430]
+shape = SubResource("SegmentShape2D_ukflq")
+one_way_collision = true
+
+[node name="13" type="CollisionShape2D" parent="invisiblewall" unique_id=102678392]
+shape = SubResource("SegmentShape2D_brn3i")
+one_way_collision = true
+
+[node name="14" type="CollisionShape2D" parent="invisiblewall" unique_id=862342270]
+shape = SubResource("SegmentShape2D_u4xxl")
+one_way_collision = true
+
+[node name="tutorial jump" type="Area2D" parent="." unique_id=1880445300]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("30_lt13j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial jump" unique_id=549028947]
+position = Vector2(-38, -59.5)
+shape = SubResource("RectangleShape2D_ir7vw")
+
+[node name="Label" type="Label" parent="tutorial jump" unique_id=1981469109]
+z_index = 4
+offset_left = -227.0
+offset_top = -73.0
+offset_right = 170.0
+offset_bottom = -50.0
+text = "Press [SPACE] to jump and [S] + [SPACE] to go down."
+
+[node name="tutorialattack" type="Area2D" parent="." unique_id=1883635086]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("30_lt13j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorialattack" unique_id=885301941]
+position = Vector2(1089, -23.5)
+shape = SubResource("RectangleShape2D_tjpl4")
+
+[node name="Label" type="Label" parent="tutorialattack" unique_id=1896319828]
+z_index = 4
+offset_left = 971.0
+offset_top = -67.0
+offset_right = 1221.0
+offset_bottom = -44.0
+text = "Press [Left Click] or [K] to attack."
+
+[node name="hero" type="CharacterBody2D" parent="." unique_id=648830150]
+position = Vector2(-313, 24)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hero" unique_id=1864987912]
+z_index = 4
+position = Vector2(8.0000305, -33.000004)
+scale = Vector2(1.2499996, 1.3374999)
+sprite_frames = SubResource("SpriteFrames_1bnin")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="ChatBubble" type="Label" parent="hero" unique_id=5431312]
+z_index = 5
+offset_left = -170.0
+offset_top = 42.0
+offset_right = 293.0
+offset_bottom = 65.0
+
+[node name="tree" type="StaticBody2D" parent="." unique_id=256386009]
+position = Vector2(-741, 21)
+
+[node name="Sprite2D" type="Sprite2D" parent="tree" unique_id=298907622]
+z_index = 2
+position = Vector2(38, -58)
+texture = ExtResource("7_lt13j")
+
+[node name="tutorialinteract" type="Area2D" parent="." unique_id=1952872358]
+position = Vector2(-2, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorialinteract" unique_id=3042753]
+position = Vector2(1377, -13)
+shape = SubResource("RectangleShape2D_w7udt")
+
+[node name="Label" type="Label" parent="tutorialinteract" unique_id=1149773348]
+z_index = 3
+offset_left = 1269.0
+offset_top = -72.0
+offset_right = 1499.0
+offset_bottom = -49.0
+text = "Press [W] interact with portal."
+
+[node name="CutsceneDirector" type="Node" parent="." unique_id=162198104 node_paths=PackedStringArray("player", "hero", "tree")]
+script = ExtResource("33_nbbbm")
+player = NodePath("../player")
+hero = NodePath("../hero")
+tree = NodePath("../tree")
+next_bgm = ExtResource("34_ugt2f")
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
+[connection signal="body_entered" from="tutorial move" to="tutorial move" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorial move" to="tutorial move" method="_on_body_exited"]
+[connection signal="body_entered" from="tutorial jump" to="tutorial jump" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorial jump" to="tutorial jump" method="_on_body_exited"]
+[connection signal="body_entered" from="tutorialattack" to="tutorialattack" method="_on_body_entered"]
+[connection signal="body_exited" from="tutorialattack" to="tutorialattack" method="_on_body_exited"]

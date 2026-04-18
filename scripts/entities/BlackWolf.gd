@@ -19,9 +19,11 @@ var current_state: State = State.IDLE
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox: Area2D = $HitBox
 @onready var hitbox_shape: CollisionShape2D = $HitBox/CollisionShape2D
+@onready var detection_area: Area2D = $DetectionArea
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity", 980.0)
 
 var _sprite_default_pos: Vector2  # Cached on _ready for clean restore
+var is_player_in_range: bool = false  # Set by DetectionArea signals
 
 # ─── Attack State ────────────────────────────────────────────────────────────
 ## is_attacking is the MASTER flag — all movement/chase logic defers to it.
@@ -51,9 +53,13 @@ func _ready() -> void:
 	hitbox_shape.set_deferred("disabled", true)
 	hitbox.body_entered.connect(_on_hitbox_body_entered)
 	sprite.animation_finished.connect(_on_animation_finished)
+	# Wire DetectionArea signals for proximity-based chase
+	detection_area.body_entered.connect(_on_detection_body_entered)
+	detection_area.body_exited.connect(_on_detection_body_exited)
 	_sprite_default_pos = sprite.position  # Cache sprite default position
 	print("[WOLF] Ready — body_layer=", collision_layer,
-			" | HitBox_mask=", hitbox.collision_mask)
+			" | HitBox_mask=", hitbox.collision_mask,
+			" | Detection radius=400")
 
 # ─── Physics Loop ─────────────────────────────────────────────────────────────
 func _physics_process(delta: float) -> void:
@@ -102,11 +108,16 @@ func _sync_animation() -> void:
 func _idle_behavior() -> void:
 	velocity.x = move_toward(velocity.x, 0, speed * 2.0)
 	move_and_slide()
-	var player := _get_player()
-	if player and global_position.distance_to(player.global_position) < 800:
+	# Only start chasing if the DetectionArea has the player inside it
+	if is_player_in_range:
 		current_state = State.CHASE
 
 func _chase_behavior() -> void:
+	# If player left the detection zone, return to idle
+	if not is_player_in_range:
+		current_state = State.IDLE
+		return
+
 	var player := _get_player()
 	if not player:
 		current_state = State.IDLE
@@ -206,6 +217,16 @@ func _on_animation_finished() -> void:
 				current_state = State.CHASE
 		"DEATH":
 			queue_free()
+
+func _on_detection_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") or body.is_in_group("Player"):
+		is_player_in_range = true
+		print("[WOLF] Player entered detection zone — starting chase")
+
+func _on_detection_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player") or body.is_in_group("Player"):
+		is_player_in_range = false
+		print("[WOLF] Player left detection zone — returning to idle")
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if not is_attacking or _hit_landed:

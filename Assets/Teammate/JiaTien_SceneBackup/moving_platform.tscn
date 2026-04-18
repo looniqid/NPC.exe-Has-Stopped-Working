@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c2v604t878o0g"]
+
+[ext_resource type="Texture2D" uid="uid://dhmp08vkasj7j" path="res://asset/s3map/horizontal s3_0002.png" id="1_lenne"]
+
+[sub_resource type="Animation" id="Animation_8w8fh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x6s1t"]
+resource_name = "move"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(178, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyfln"]
+_data = {
+&"RESET": SubResource("Animation_8w8fh"),
+&"move": SubResource("Animation_x6s1t")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_73eli"]
+a = Vector2(41, -10)
+b = Vector2(-50, -10)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=215112480]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=670270945]
+texture = ExtResource("1_lenne")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1173369125]
+libraries/ = SubResource("AnimationLibrary_lyfln")
+autoplay = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1019852337]
+shape = SubResource("SegmentShape2D_73eli")
+one_way_collision = true
