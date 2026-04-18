@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cy0lel7g3y4pu"]
+
+[ext_resource type="Script" uid="uid://edknprhr5wv8" path="res://scripts/interactables/PhysicalUI.gd" id="1_7wcsv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2p7qw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa4d8"]
+size = Vector2(55, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4sq4"]
+size = Vector2(30, 5)
+
+[node name="popUpCombine" type="Node2D" unique_id=1128611668]
+
+[node name="physicBox" type="RigidBody2D" parent="." unique_id=1779562806]
+mass = 111.511
+physics_material_override = SubResource("PhysicsMaterial_2p7qw")
+gravity_scale = 3.687
+script = ExtResource("1_7wcsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="physicBox" unique_id=916451901]
+position = Vector2(17.5, 7.5)
+shape = SubResource("RectangleShape2D_pa4d8")
+
+[node name="platform" type="AnimatableBody2D" parent="." unique_id=305451987]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform" unique_id=85976807]
+position = Vector2(18, -15)
+shape = SubResource("RectangleShape2D_v4sq4")

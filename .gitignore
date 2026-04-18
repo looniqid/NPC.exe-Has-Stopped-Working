@@ -1,0 +1,18 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Agent & AI tools
+.agent/
+.gemini/
+.brain/
+
+# Temporary files
+tmp/
+*.tmp
+*.log
+
+# Editor junk
+.vscode/
+.idea/
+*.swp

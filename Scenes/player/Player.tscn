@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c1p2p3p4p5p6"]
+
+[ext_resource type="Script" uid="uid://dem80nt7n2efv" path="res://scripts/core/Player.gd" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://cfgmvyvkoxxjq" path="res://Graphics/main char act_0001.png" id="2_gpg7s"]
+[ext_resource type="Script" uid="uid://dp8emiw0wdjr3" path="res://scripts/core/InputInterceptor.gd" id="2_interceptor"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 16.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D" unique_id=993275919 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+platform_floor_layers = 4294967290
+script = ExtResource("1_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=971426703]
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_gpg7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51171788]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_1")
+
+[node name="InputInterceptor" type="Node" parent="." unique_id=1678905935]
+script = ExtResource("2_interceptor")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=415494132]
+zoom = Vector2(2, 2)

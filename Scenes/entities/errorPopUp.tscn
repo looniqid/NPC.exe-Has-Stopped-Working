@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://xqq226rmkv5c"]
+
+[ext_resource type="Script" uid="uid://edknprhr5wv8" path="res://scripts/interactables/PhysicalUI.gd" id="1_ln5wl"]
+[ext_resource type="Shader" uid="uid://dl7p5s6846a51" path="res://removeWhiteBG.gdshader" id="2_88djx"]
+[ext_resource type="Texture2D" uid="uid://bdgwgtj4nwygs" path="res://Graphics/error_popup.png" id="3_rrld4"]
+[ext_resource type="PackedScene" uid="uid://2i65q6kf0rif" path="res://testing.tscn" id="4_2svt7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dl1pv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7s1m"]
+shader = ExtResource("2_88djx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7s1m"]
+size = Vector2(96, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dl1pv"]
+size = Vector2(96, 5.625)
+
+[node name="Error_popup" type="RigidBody2D" unique_id=1401815533]
+disable_mode = 2
+collision_layer = 4
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_dl1pv")
+script = ExtResource("1_ln5wl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=182055160]
+visible = false
+self_modulate = Color(1, 0.42564848, 0.4989832, 1)
+material = SubResource("ShaderMaterial_i7s1m")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_rrld4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461176450]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_i7s1m")
+
+[node name="RoofPlatform" type="AnimatableBody2D" parent="." unique_id=1230431293]
+collision_layer = 4
+collision_mask = 0
+
+[node name="roofCollision" type="CollisionShape2D" parent="RoofPlatform" unique_id=708378417]
+position = Vector2(0, -34.1875)
+shape = SubResource("RectangleShape2D_dl1pv")
+disabled = true
+
+[node name="Node2D" parent="." unique_id=1322958689 instance=ExtResource("4_2svt7")]
+position = Vector2(7, -35)

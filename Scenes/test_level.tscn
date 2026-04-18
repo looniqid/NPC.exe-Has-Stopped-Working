@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://06jqt4gx4wmm"]
+
+[ext_resource type="PackedScene" uid="uid://c1p2p3p4p5p6" path="res://Scenes/player/Player.tscn" id="1_iti4p"]
+[ext_resource type="PackedScene" path="res://Scenes/debug/DebugOverlay.tscn" id="2_dtjkg"]
+[ext_resource type="PackedScene" uid="uid://c3d4e5f6g7h8" path="res://Scenes/entities/ChaosBuddy.tscn" id="3_eglq2"]
+[ext_resource type="PackedScene" uid="uid://cy0lel7g3y4pu" path="res://Scenes/popup/pop_up_combine.tscn" id="4_rsyfn"]
+[ext_resource type="PackedScene" uid="uid://d1e2f3g4h5i6" path="res://Scenes/items/Installer.tscn" id="5_7w7ni"]
+[ext_resource type="Script" uid="uid://cd8v2es20f4y8" path="res://scripts/core/Main.gd" id="6_main"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1c2mv"]
+size = Vector2(1630, 467.25)
+
+[sub_resource type="Gradient" id="Gradient_f7g2b"]
+offsets = PackedFloat32Array(0, 0.6706731, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.56971157, 0.56971157, 0.56971157, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4ptq8"]
+gradient = SubResource("Gradient_f7g2b")
+
+[sub_resource type="Environment" id="Environment_7w7ni"]
+background_mode = 3
+adjustment_enabled = true
+
+[node name="test_level" type="Node2D" unique_id=1070211413]
+script = ExtResource("6_main")
+debug_color_mode = true
+
+[node name="level" type="StaticBody2D" parent="." unique_id=788764591]
+position = Vector2(649, 543)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level" unique_id=300613404]
+position = Vector2(-161, 86.375)
+shape = SubResource("RectangleShape2D_1c2mv")
+
+[node name="Sprite2D" type="Sprite2D" parent="level" unique_id=1494397858]
+modulate = Color(0.67359495, 0.027094869, 0.35698378, 1)
+position = Vector2(-160.00003, 86.250015)
+scale = Vector2(6.3671875, 469.50003)
+texture = SubResource("GradientTexture1D_4ptq8")
+
+[node name="Player" parent="." unique_id=933233491 instance=ExtResource("1_iti4p")]
+position = Vector2(628, 363)
+
+[node name="DebugOverlay" parent="." unique_id=247883463 instance=ExtResource("2_dtjkg")]
+
+[node name="ChaosBuddy" parent="." unique_id=152309403 node_paths=PackedStringArray("target_node") instance=ExtResource("3_eglq2")]
+position = Vector2(540, 310)
+target_node = NodePath("../Player")
+follow_offset = Vector2(-50, -50)
+
+[node name="popUpCombine" parent="." unique_id=1128611668 instance=ExtResource("4_rsyfn")]
+position = Vector2(864, 349)
+
+[node name="GraphicsInstaller" parent="." unique_id=2068899218 instance=ExtResource("5_7w7ni")]
+position = Vector2(800, 372)
+
+[node name="DoubleJumpInstaller" parent="." unique_id=146844202 instance=ExtResource("5_7w7ni")]
+position = Vector2(683, 373)
+module_type = "input"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1791390045]
+environment = SubResource("Environment_7w7ni")
+
+[connection signal="chaos_event_triggered" from="ChaosBuddy" to="Player" method="_on_chaos_buddy_chaos_event_triggered"]
