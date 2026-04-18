@@ -45,8 +45,7 @@ func _collect() -> void:
 			manager.is_input_fixed = true
 			manager.repair_input()
 		elif module_type == "audio":
-			manager.is_audio_fixed = true
-			manager.restore_audio_systems()
+			manager.fix_audio_visuals()
 			# Play high-quality chime (special case that bypasses initial silence)
 			if collection_chime:
 				manager.play_system_sound(collection_chime)

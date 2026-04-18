@@ -12,9 +12,14 @@ class_name Player
 @export var push_force: float = 80.0
 
 @onready var interceptor: InputInterceptor = $InputInterceptor
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var jump_count: int = 0
+var is_attacking: bool = false
+
+func _ready() -> void:
+	sprite.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	# Add gravity
@@ -37,20 +42,30 @@ func _physics_process(delta: float) -> void:
 			else:
 				_trigger_glitch_feedback()
 
+	# Handle Attack
+	handle_attack_input()
+
 	# Get horizontal direction from interceptor
 	var direction: float = interceptor.get_movement_direction()
 	
-	# Apply movement speed penalty if Input system is not fixed
-	var current_speed: float = speed
-	if not SystemManager.is_input_fixed:
-		current_speed *= 0.7
-	
-	if direction != 0:
-		velocity.x = move_toward(velocity.x, direction * current_speed, acceleration * delta)
+	# Handle horizontal movement (Locked if attacking)
+	if not is_attacking:
+		# Apply movement speed penalty if Input system is not fixed
+		var current_speed: float = speed
+		if not SystemManager.is_input_fixed:
+			current_speed *= 0.7
+		
+		if direction != 0:
+			velocity.x = move_toward(velocity.x, direction * current_speed, acceleration * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, friction * delta)
 	else:
+		# Optionally keep some friction or stop immediately
 		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 	move_and_slide()
+	
+	update_animations()
 	
 	# Pushing logic for RigidBody2D objects (like ErrorPopups)
 	for i in get_slide_collision_count():
@@ -71,6 +86,32 @@ func _unhandled_input(event: InputEvent) -> void:
 			# Fallback if not yet registered as Autoload (for development/testing)
 			push_warning("CheckpointManager Autoload not found.")
 
+
+func handle_attack_input() -> void:
+	if Input.is_action_just_pressed("attack") and not is_attacking:
+		is_attacking = true
+		sprite.play("attack")
+
+func update_animations() -> void:
+	# Gate 1: Action Lock
+	if is_attacking:
+		return
+	
+	# Gate 2: Flip Logic
+	if abs(velocity.x) > 0:
+		sprite.flip_h = velocity.x < 0
+	
+	# Gate 3: Physics State Priority
+	if not is_on_floor():
+		sprite.play("jump")
+	elif velocity.x != 0:
+		sprite.play("walking")
+	else:
+		sprite.play("idle")
+
+func _on_animation_finished() -> void:
+	if sprite.animation == "attack":
+		is_attacking = false
 
 func _on_chaos_buddy_chaos_event_triggered(event_type: String) -> void:
 	if event_type == "invert":

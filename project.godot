@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 CheckpointManager="*res://scripts/core/CheckpointManager.gd"
-SystemManager="*res://scripts/core/SystemManager.gd"
+SystemManager="*uid://b7lwcydff101e"
 
 [display]
 

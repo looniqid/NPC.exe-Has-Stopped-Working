@@ -55,10 +55,15 @@ position = Vector2(864, 349)
 position = Vector2(800, 372)
 
 [node name="DoubleJumpInstaller" parent="." unique_id=146844202 instance=ExtResource("5_7w7ni")]
-position = Vector2(683, 373)
+position = Vector2(1031, 353)
 module_type = "input"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1791390045]
 environment = SubResource("Environment_7w7ni")
+
+[node name="AudioInstaller" parent="." unique_id=1520100366 instance=ExtResource("5_7w7ni")]
+z_index = 3
+position = Vector2(733, 374)
+module_type = "audio"
 
 [connection signal="chaos_event_triggered" from="ChaosBuddy" to="Player" method="_on_chaos_buddy_chaos_event_triggered"]

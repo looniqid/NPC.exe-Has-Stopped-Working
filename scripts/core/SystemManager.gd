@@ -22,9 +22,19 @@ var is_graphics_fixed_running: bool = false
 		dev_mode_color = value
 		update_environment_visuals()
 
+@export_group("Audio Resources")
+@export var clean_bgm_stream: AudioStream
+@export var glitch_bgm_stream: AudioStream
+@export var crash_sfx_stream: AudioStream
+
+
 var env_node_cache: WorldEnvironment = null
 
 @onready var sfx_player: AudioStreamPlayer = AudioStreamPlayer.new()
+var bgm_normal: AudioStreamPlayer = null
+var bgm_glitch: AudioStreamPlayer = null
+var is_restoring_audio: bool = false
+
 
 func _ready() -> void:
 	# Initialize global SFX player
@@ -32,6 +42,24 @@ func _ready() -> void:
 		add_child(sfx_player)
 		sfx_player.bus = "Master"
 		sfx_player.name = "GlobalSFXPlayer"
+		
+		# Specialized BGM Players
+		bgm_normal = AudioStreamPlayer.new()
+		bgm_normal.name = "BGM_Normal"
+		bgm_normal.stream = clean_bgm_stream
+		bgm_normal.bus = "Master"
+		add_child(bgm_normal)
+		
+		bgm_glitch = AudioStreamPlayer.new()
+		bgm_glitch.name = "BGM_Glitch"
+		bgm_glitch.stream = glitch_bgm_stream
+		bgm_glitch.bus = "Master"
+		bgm_glitch.volume_db = -80.0 # Start muted
+		add_child(bgm_glitch)
+		
+		# Start with clean BGM (Intro state)
+		if clean_bgm_stream:
+			bgm_normal.play()
 	
 	update_environment_visuals()
 
@@ -138,23 +166,54 @@ func play_system_sound(stream: AudioStream) -> void:
 		# Silence or static fallback (if implemented)
 		pass
 
-## Finds the BGM player and restores the musical atmosphere.
-func restore_audio_systems() -> void:
-	is_audio_fixed = true
-	var bgm_player = get_tree().get_first_node_in_group("bgm_player")
+## Swaps the game from the main theme to the glitched/corrupted state.
+func trigger_system_crash() -> void:
+	if is_instance_valid(bgm_normal):
+		bgm_normal.stop()
 	
-	if is_instance_valid(bgm_player) and bgm_player is AudioStreamPlayer:
-		var tween = create_tween()
-		tween.set_trans(Tween.TRANS_SINE)
-		tween.set_ease(Tween.EASE_IN_OUT)
-		
-		# Dramatic fade-in from silence
-		bgm_player.volume_db = -80.0
-		bgm_player.play()
-		tween.tween_property(bgm_player, "volume_db", 0.0, 2.0)
-		
-		print("[SYSTEM] Audio system restored. BGM fade-in started.")
-	else:
-		push_warning("[SYSTEM] restore_audio_systems could not find a node in group 'bgm_player'.")
+	# Play crash SFX once
+	if is_instance_valid(crash_sfx_stream):
+		sfx_player.stream = crash_sfx_stream
+		sfx_player.play()
 	
+	# Start looping glitch background
+	if is_instance_valid(bgm_glitch):
+		bgm_glitch.volume_db = 0.0
+		bgm_glitch.play()
+	
+	is_audio_fixed = false
+	print("[SYSTEM] CRITICAL ERROR: INPUT.sys/AUDIO.dll integrity check failed.")
+
+## Professional cross-fade from glitched ambiance back to restored theme.
+func fix_audio_visuals() -> void:
+	# Guard clause: prevent overlapping restorations
+	if is_restoring_audio or is_audio_fixed:
+		return
+		
+	is_restoring_audio = true
+	
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	# Cross-fade logic (2.0 seconds)
+	if is_instance_valid(bgm_glitch):
+		tween.tween_property(bgm_glitch, "volume_db", -80.0, 2.0)
+	
+	if is_instance_valid(bgm_normal):
+		bgm_normal.volume_db = -80.0
+		bgm_normal.play()
+		tween.tween_property(bgm_normal, "volume_db", 0.0, 2.0)
+	
+	# Finalize state once cross-fade completes
+	tween.chain().finished.connect(func():
+		is_audio_fixed = true
+		is_restoring_audio = false
+		if is_instance_valid(bgm_glitch):
+			bgm_glitch.stop()
+		print("[SYSTEM] Audio stabilization successful.")
+	)
+	
+	# Notify other potential listeners (UI, etc.)
 	system_updated.emit("audio", true)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7lwcydff101e"]
+
+[ext_resource type="Script" uid="uid://bfatc3jky88y2" path="res://scripts/core/SystemManager.gd" id="1_uiuan"]
+[ext_resource type="AudioStream" uid="uid://b3hfq70s5hpau" path="res://Audio/BG sound.mp3" id="2_p461x"]
+[ext_resource type="AudioStream" uid="uid://dw4vvlxerx3ab" path="res://Audio/ElectricSoundBeforeInstaller.wav" id="3_kw8qe"]
+[ext_resource type="AudioStream" uid="uid://cv4jm4ks5bi3a" path="res://Audio/electric_crash_sound.mp3" id="4_svgfa"]
+
+[node name="System manager" type="Node2D" unique_id=628626125]
+script = ExtResource("1_uiuan")
+clean_bgm_stream = ExtResource("2_p461x")
+glitch_bgm_stream = ExtResource("3_kw8qe")
+crash_sfx_stream = ExtResource("4_svgfa")
