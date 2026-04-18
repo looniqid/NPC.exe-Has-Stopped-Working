@@ -140,23 +140,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=476033818]
-
-[node name="player" type="CharacterBody2D" parent="." unique_id=998630767]
+[node name="player" type="CharacterBody2D" unique_id=998630767]
 script = ExtResource("1_ct4mp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=674586888]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=674586888]
 z_index = 1
 position = Vector2(29, -26)
 shape = SubResource("RectangleShape2D_fvtld")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1638382999]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638382999]
 position = Vector2(29, -28)
 sprite_frames = SubResource("SpriteFrames_hp4bs")
 animation = &"jump"
 
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1522749194]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1522749194]
 position = Vector2(29, -28)
 zoom = Vector2(3, 3)
 
-[connection signal="animation_finished" from="player/AnimatedSprite2D" to="player" method="_on_animated_sprite_2d_animation_finished"]
+[node name="Node2D" type="Node2D" parent="." unique_id=476033818]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
