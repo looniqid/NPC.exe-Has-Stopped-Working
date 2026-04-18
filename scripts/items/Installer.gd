@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 class_name Installer
 
@@ -11,15 +12,29 @@ class_name Installer
 @export var hover_speed: float = 2.0
 @export var collection_chime: AudioStream
 
+@export_group("Visuals")
+@export var module_icon: Texture2D: set = set_module_icon
+
+func set_module_icon(value: Texture2D) -> void:
+	module_icon = value
+	# Ensure the sprite updates if it exists (handles both Editor and Runtime)
+	var s = sprite if is_instance_valid(sprite) else get_node_or_null("Sprite2D")
+	if s:
+		s.texture = module_icon
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var initial_y: float = 0.0
 
 func _ready() -> void:
 	if is_instance_valid(sprite):
 		initial_y = sprite.position.y
+		# Apply icon if set
+		if module_icon:
+			sprite.texture = module_icon
 		
-	# Connect signal for collection
-	body_entered.connect(_on_body_entered)
+	# Connect signal for collection (only in game)
+	if not Engine.is_editor_hint():
+		body_entered.connect(_on_body_entered)
 
 func _process(_delta: float) -> void:
 	# Smooth floating animation using sine wave

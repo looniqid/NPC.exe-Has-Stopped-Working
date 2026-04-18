@@ -10,7 +10,7 @@ size = Vector2(55, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4sq4"]
 size = Vector2(30, 5)
 
-[node name="popUpCombine" type="Node2D" unique_id=1128611668]
+[node name="physicsPlatform" type="Node2D" unique_id=1128611668]
 
 [node name="physicBox" type="RigidBody2D" parent="." unique_id=1779562806]
 mass = 111.511

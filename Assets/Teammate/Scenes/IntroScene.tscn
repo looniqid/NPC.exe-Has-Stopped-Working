@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://c3d4e5f6g7h8" path="res://Scenes/entities/ChaosBuddy.tscn" id="25_u4xxl"]
 [ext_resource type="PackedScene" uid="uid://d1e2f3g4h5i6" path="res://Scenes/items/Installer.tscn" id="26_ir7vw"]
 [ext_resource type="PackedScene" uid="uid://dpa3qdilbg7pf" path="res://scenes/debug/DebugOverlay.tscn" id="27_debug"]
+[ext_resource type="Texture2D" uid="uid://d285ambp4ql84" path="res://Graphics/installers/audio.png" id="28_s02qs"]
 [ext_resource type="PackedScene" uid="uid://vreq3r4np3ec" path="res://Scenes/entities/BlackWolf.tscn" id="29_tshgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sng2h"]
@@ -3812,7 +3813,7 @@ shape = SubResource("RectangleShape2D_0yri0")
 
 [node name="player" parent="." unique_id=476033818 instance=ExtResource("24_brn3i")]
 z_index = 5
-position = Vector2(1324, 8)
+position = Vector2(1109, 4)
 collision_mask = 13
 
 [node name="ChaosBuddy" parent="." unique_id=152309403 node_paths=PackedStringArray("target_node") instance=ExtResource("25_u4xxl")]
@@ -3828,13 +3829,15 @@ position = Vector2(-203, 27)
 
 [node name="AudioInstaller" parent="." unique_id=672633146 instance=ExtResource("26_ir7vw")]
 z_index = 3
-position = Vector2(1306, 26)
+position = Vector2(1289, 32)
 module_type = "audio"
+module_icon = ExtResource("28_s02qs")
 
 [node name="DebugOverlay" parent="." unique_id=532748477 instance=ExtResource("27_debug")]
 
 [node name="BlackWolf" parent="." unique_id=9944051 instance=ExtResource("29_tshgq")]
-position = Vector2(1050, 20)
+visible = false
+position = Vector2(1367, 20)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
