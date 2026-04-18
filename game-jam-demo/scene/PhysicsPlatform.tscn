@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cy0lel7g3y4pu"]
+[gd_scene format=3 uid="uid://chaa4kixlcg22"]
 
-[ext_resource type="Script" uid="uid://edknprhr5wv8" path="res://scripts/interactables/PhysicalUI.gd" id="1_7wcsv"]
+[ext_resource type="Script" uid="uid://edknprhr5wv8" path="res://scene/PhysicalUI.gd" id="1_7wcsv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2p7qw"]
 
@@ -21,6 +21,7 @@ script = ExtResource("1_7wcsv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="physicBox" unique_id=916451901]
 position = Vector2(17.5, 7.5)
 shape = SubResource("RectangleShape2D_pa4d8")
+one_way_collision = true
 
 [node name="platform" type="AnimatableBody2D" parent="." unique_id=305451987]
 

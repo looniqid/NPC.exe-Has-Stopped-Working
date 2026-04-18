@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dddshq7h6dd7k"]
+
+[ext_resource type="Texture2D" uid="uid://i3nlrly7rlp0" path="res://asset/s3map/horizontal s3_0004.png" id="1_orvqp"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_whu1b"]
+a = Vector2(56, -10)
+b = Vector2(-54, -10)
+
+[sub_resource type="Animation" id="Animation_700el"]
+resource_name = "new_animation"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ovjrt"]
+_data = {
+&"new_animation": SubResource("Animation_700el")
+}
+
+[node name="greenplatform" type="Node2D" unique_id=1150763532]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1940687993]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1549286175]
+texture = ExtResource("1_orvqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=920060154]
+shape = SubResource("SegmentShape2D_whu1b")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=607844121]
+libraries/ = SubResource("AnimationLibrary_ovjrt")
+autoplay = &"new_animation"
